@@ -87,3 +87,38 @@ const message = "Don't be sad, be happy!";
 console.log(message.indexOf('be')); // <== 6
 console.log(message.indexOf('be', 7)); // <== 14
 
+//Practice
+//Write code that finds the index of the letter “j” in My favorite dessert is jello.
+const message = "My favorite dessert is jello.";
+console.log(message.indexOf('j')); //23
+
+//Sorting the strings .localeCompare()
+// 'str1'.localeCompare('str2');
+console.log('barcelona'.localeCompare('miami')); // -1
+console.log('miami'.localeCompare('barcelona')); // 1
+console.log('Miami'.localeCompare('miami')); // 1
+
+//ES6 new string methods
+//startsWith() method
+//Syntax str.startsWith(searchString[, position])
+const str = 'To be, or not to be, that is the question.';
+console.log(str.startsWith('To be')); // true
+console.log(str.startsWith('not to be')); // false
+console.log(str.startsWith('not to be', 10)); // true
+
+//.endWith()
+//Syntax
+//str.endsWith(searchString[, length])
+
+const ntr = 'To be, or not to be, that is the question.';
+console.log(ntr.endsWith('question.')); // true
+console.log(ntr.endsWith('to be')); // false
+console.log(ntr.endsWith('to be', 19)); // true
+
+//.includes()
+//Syntax str.includes(searchString[, position])
+const ctr = 'To be, or not to be, that is the question.';
+console.log(ctr.includes('to be')); // true
+console.log(ctr.includes('question')); // true
+console.log(ctr.includes('nonexistent')); // false
+console.log(ctr.includes('To be', 1)); // false
