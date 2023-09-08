@@ -298,7 +298,8 @@ switch (nameFour) {
 }
 console.log(`Your favorite character is from the house ${mouse}.`);
 
-//break
+//break = statement terminates the current switch statement, or better saying, the current case.
+
 const nameFive = prompt('Favorite Game of Thrones main character:');
 let houseThree = '';
 
@@ -339,5 +340,108 @@ switch (nameSix) {
 }
 console.log(`Am I good at coding and programming? ${answer}.`);
 
-//Loops & Iterations
+//Loops & Iterations - In JavaScript, loops and iterations are used to execute repetitive tasks.
+
 //while statement
+while (condition) {} // code to be executed while the condition is true
+  
+let o = 0;
+while (o <= 100) {
+  console.log(o);
+  o++; // this is the same as i = i + 1
+}
+
+//do while statement
+do {
+    // block of code to be executed
+  } while (condition);
+  
+//Practice
+//Iteration 1 - Create a script that counts from 0 to 30. 
+let g = 1;
+while (g <= 30) {
+  console.log(g);
+  g++;
+}
+//Iteration 2 - Change the previous script to write “ten” when the value of i is 10, and “twenty” when the value if 20.
+//Addition 30=thirty
+let h = 1;
+while (h <= 30) {
+  if (h === 10) {
+    console.log("ten");
+  } else if (h === 20) {
+    console.log("twenty");
+  } else if (h === 30) {
+    console.log("thirty");
+  } else {
+    console.log(h);
+  }
+  h++;
+}
+
+//for statement
+for (initialization; condition; finalExpression) {}
+
+for (let i = 0; i <= 100; i++) {
+    console.log(i);
+  }  
+
+//for...of statement
+for (value of iterable) {
+    // some statement goes here
+  }  
+
+  const someIterable = 'amsterdam';
+
+for (const value of someIterable) {
+  console.log(value);
+}
+// the expected output:
+// a
+// m
+// s
+// t
+// e
+// r
+// d
+// a
+// m
+
+
+let l = 0;
+
+while (l < 5) {
+  l++;
+  console.log(`The number is: ${l}.`);
+  if (l === 3) {
+    break;
+  }
+}
+//The number is: 1.
+//The number is: 2.
+//The number is: 3.
+
+//Continue statement
+let n = 0;
+
+while (n < 5) {
+  n++;
+  if (n === 3) {
+    continue;
+  }
+  console.log(`The number is: ${n}.`);
+}
+//The number is: 1.
+//The number is: 2.
+//The number is: 4.
+//The number is: 5.
+
+//Practice - Let’s write a loop that will iterate from 0 to 20. For each iteration, it will check if the current number is even or odd, and print that on the screen. You will need the remainder operator to do the exercise. Expected output:1 is odd 2 is even … 19 is odd 20 is even
+for (let i = 0; i <= 20; i++) {
+    if (i % 2 === 0) {
+      console.log(i + ' is even');
+    } else {
+      console.log(i + ' is odd');
+    }
+  }
+  
