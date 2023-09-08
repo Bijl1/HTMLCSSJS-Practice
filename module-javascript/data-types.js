@@ -445,3 +445,84 @@ for (let i = 0; i <= 20; i++) {
     }
   }
   
+
+
+//Object literal syntax
+let someObject = {
+    key1: value,
+    key2: value,
+    key3: value
+  };
+  
+//Object constructor syntax
+let someObjects = new Object();
+
+let olympicRecords = {
+    athletics100Men: 'Justin Gatlin',
+    athleticsLongJumpMen: 'Mike Powel'
+  };
+  console.log(olympicRecords.athletics100Men); //Justin Gatlin
+  console.log(olympicRecords.athleticsLongJumpMen); //Mike Powel
+  //other options
+  console.log(olympicRecords['athletics100Men']); //Justin Gatlin
+  console.log(olympicRecords['athleticsLongJumpMen']); // => "Mike Powel"
+  
+  //Does propert exist in object - in operator
+  //prop in objectName;
+let myCar = {
+    make: 'Honda',
+    model: 'Accord',
+    year: 1998
+};
+console.log('make' in myCar); // returns true
+console.log('model' in myCar); // returns true
+console.log('engine' in myCar); // false
+
+//Keys
+//object.keys()
+let olympicRecordsTwo = {
+    athletics100Men: 'Usain Bolt',
+    athleticsLongJumpMen: 'Mike Powel',
+    swimming200Men: 'Michael Phelps',
+    swimming400Women: 'Katie Ledecky'
+  };
+  console.log(Object.keys(olympicRecordsTwo));
+  // => ["athletics100Men", "athleticsLongJumpMen", "swimming200Men", "swimming400Women"]
+  
+  //for ... in loop
+  let olympicRecordsThree = {
+    athletics100Men: 'Usain Bolt',
+    athleticsLongJumpMen: 'Mike Powel',
+    swimming200Men: 'Michael Phelps',
+    swimming400Women: 'Katie Ledecky'
+  };
+  for (let key in olympicRecordsThree) {
+    console.log(key);
+  }
+// athletics100Men
+// athleticsLongJumpMen
+// swimming200Men
+// swimming400Women
+
+//Object.values
+let olympicRecordsFour = {
+    athletics100Men: 'Usain Bolt',
+    athleticsLongJumpMen: 'Mike Powel',
+    swimming200Men: 'Michael Phelps',
+    swimming400Women: 'Katie Ledecky'
+  };
+  
+  console.log(Object.values(olympicRecordsFour));
+  // => ["Usain Bolt", "Mike Powel", "Michael Phelps", "Katie Ledecky"]
+  
+//Data Structure
+const students = [
+    "Bob",
+    "Susy",
+    "Ted",
+    "Sarah",
+    "Bill"
+  ];
+console.log(students[0]); //Bob
+console.log(students[2]); //Ted
+console.log(students[4]); //Bill
