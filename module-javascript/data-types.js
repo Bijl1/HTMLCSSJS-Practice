@@ -59,3 +59,31 @@ console.log(message); //Hello Foo Kim!!
 let customer = { firstName: 'Foo', lastName: 'Kim' };
 let message = `Hello ${customer.firstName} ${customer.lastName}!!`;
 console.log(message);
+
+//Accessing characters
+const greeting = 'Hello there!';
+console.log(`"${greeting}" is a string and it's length is ${greeting.length}.`);
+// "Hello there!" is a string and it's length is 12.
+console.log(greeting.charAt(0)); // <== H
+console.log(greeting.charAt(1)); // <== e
+console.log(greeting.charAt(5)); // <== " "
+console.log(greeting.charAt(11)); // <== !
+console.log(greeting.charAt(12)); // <== "" as an empty string
+
+const goat = 'Hello there!';
+console.log(goat[0]); // <== H
+console.log(goat[3]); // <== l
+console.log(goat[9]); // <== r
+console.log(goat[-2]); // undefined
+
+//Finding a substring
+const message = "Don't be sad, be happy!";
+console.log(message.indexOf("Don't")); // <== 0
+console.log(message.indexOf('t')); // <== 4
+console.log(message.indexOf('Be')); // <== -1 (capitalized Be ≠ lowercased be)
+console.log(message.indexOf('py')); // 20
+
+const message = "Don't be sad, be happy!";
+console.log(message.indexOf('be')); // <== 6
+console.log(message.indexOf('be', 7)); // <== 14
+
