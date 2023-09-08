@@ -122,3 +122,222 @@ console.log(ctr.includes('to be')); // true
 console.log(ctr.includes('question')); // true
 console.log(ctr.includes('nonexistent')); // false
 console.log(ctr.includes('To be', 1)); // false
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+//Using special characters in strings 
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#using_special_characters_in_strings
+
+//Number Methods for Rounding
+
+//Multiply-and-Divide in combo with Math.round():
+let anyNumber = 5.679345;
+let roundedToOne = Math.round(anyNumber*10)/10;
+let roundedToTwo = Math.round(anyNumber*100)/100;
+let roundedToThree = Math.round(anyNumber*1000)/1000;
+
+console.log(roundedToOne); // <== 5.7
+console.log(roundedToTwo); // <== 5.68
+console.log(roundedToThree); // <== 5.679
+
+let anyNumbers = 5.679345;
+let roundedToFive = anyNumbers.toFixed(1);
+console.log(roundedToFive); // 5.7
+let roundedToSix = anyNumbers.toFixed(3);
+console.log(roundedToSix); // 5.679
+
+//Data Types in JS - boolean, undefined & null and Immutability
+
+//Boolean logic operators
+//We use logical operators to combine two (or more) conditions and depending on the conditions and the logical operator(s), we will get as a result a true or a false.
+
+// OR Operator (||)
+//The or operator, represented by ||, returns true if one of the evaluated expressions is true.
+const name1 = true || true; // => true
+const name2 = true || false; // => true
+const name3 = false || true; // => true
+const name4 = false || false; // => false
+const name5 = false || 4 > 2; // true
+console.log(name1, name2, name3, name4, name5);
+
+//NOT Operator (!)
+//If the expression is true, the result will be false, and vice versa.
+!true; // => false
+!false; // => true
+!(4 > 2); // => false
+
+//An undefined as data type
+let nameTwo;
+console.log(nameTwo); // <== undefined
+
+//A null as data type
+let nameOne = null;
+console.log(nameOne); // <== null
+
+//Truthy and falsy values
+if ('false') {
+    console.log('Passed thingy is truthy');
+  } else {
+    console.log('Passed thingy is falsy');
+  }
+  // => 'Passed thingy is truthy'
+  
+//Immutability
+let city = 'miami';
+console.log(city[0]); // <== m
+city[0] = 'M';
+console.log(city); // <== miami
+
+let city = 'miami';
+console.log(city); // <== miami
+// we CAN re-assign our variable to another value
+city = 'berlin';
+console.log(city); // <== berlin
+// but still CAN NOT change the value "berlin"
+city[0] = 'B';
+console.log(city); // <== berlin
+
+city = city.charAt(0).toUpperCase() + city.slice(1);
+console.log(city); // <== Berlin
+
+
+const message = "Don't be sad, be happy!";
+console.log(message.slice(0, 4)); // <== Don'
+console.log(message.slice(14,23)); //be happy!
+console.log(message); // <== Don't be sad, be happy!
+
+//JS Conditionals and Loops
+//Conditional Statements
+//if...else
+if (condition1) {
+    // code to execute if condition1 is true
+  } else if (condition2) {
+    // code to execute if condition2 is true
+  } else {
+    // code to execute if condition1 and condition2 are false
+  }  
+
+
+// Sample age variable for testing
+//if ... else
+const userAge = 34;
+if (userAge >= 54) {
+  console.log("Older than 54");
+} else if (userAge >= 13) {
+  console.log("Between 13 and 54");
+} else {
+  console.log("Younger than 13");
+}
+
+//if..else
+if (condition) {
+    if (nestedCondition) {
+      // The code will be executed if
+      // condition === true && nestedCondition === true
+    } else {
+      // The code will be executed if
+      // condition === true && nestedCondition === false
+    }
+  } else {
+    // The code will be executed if
+    // condition === false
+  }
+  
+const number1 = parseInt(prompt('First number:'));
+const number2 = parseInt(prompt('Second number:'));
+
+if (number1 === number2) {
+  console.log('The numbers are equal.');
+} else {
+  if (number1 > number2) {
+    console.log('Number 1 is bigger than number 2.');
+  } else {
+    console.log('Number 1 is smaller than number 2.');
+  }
+}
+
+const nameThree = prompt('Favorite Game of Thrones main character:');
+let house = '';
+
+if (nameThree === 'Khal Drogo') {
+  house = 'Dothraki Horselord';
+} else if (nameThree === 'Daenerys') {
+  house = 'Targaryen';
+} else if (nameThree === 'Jon Snow' || nameThree === 'Sansa' || nameThree === 'Arya') {
+  house = 'Stark';
+} else if (nameThree === 'Cersei' || nameThree === 'Tyrion' || nameThree === 'Ser Jaime') {
+  house = 'Lannister';
+} else {
+  house = 'Other';
+}
+
+console.log(`Your favorite character is from the house ${house}.`);
+
+//switch
+switch (expression) {
+    case value1:
+      // executed code when the expression === value1
+      break;
+    case value2:
+      // executed code when the expression === value2
+      break;
+    case value3:
+      // executed code when the expression === value3
+      break;
+    default:
+    // executed code when none of the values match the expression
+  }
+  
+const nameFour = prompt('Favorite Game of Thrones main character:');
+let mouse = '';
+switch (nameFour) {
+  case 'Khal Drogo':
+    mouse = 'Dothraki Horselord';
+  case 'Daenerys':
+    mouse = 'Targaryen';
+}
+console.log(`Your favorite character is from the house ${mouse}.`);
+
+//break
+const nameFive = prompt('Favorite Game of Thrones main character:');
+let houseThree = '';
+
+switch (nameFive) {
+  case 'Khal Drogo':
+    houseThree = 'Dothraki Horselord';
+    break;
+  case 'Daenerys':
+    houhouseThreese = 'Targaryen';
+    break;
+  case 'Jon Snow':
+  case 'Sansa':
+  case 'Arya':
+    houseThree = 'Stark';
+    break;
+}
+console.log(`Your favorite character is from the house ${houseThree}.`);
+
+
+//Practice
+const nameSix = prompt('Am I good at coding and programming?');
+let answer = '';
+
+switch (nameSix) {
+  case 'yes':
+    answer = 'Yes!';
+    break;
+  case 'No':
+    answer = 'No!';
+    break;
+  case 'maybe':
+  case 'newb':
+  case 'beginner':
+    answer = 'No!';
+    break;
+    default:
+        answer = 'Well, let just say I am on speaking terms with the compoler!';
+}
+console.log(`Am I good at coding and programming? ${answer}.`);
+
+//Loops & Iterations
+//while statement
