@@ -516,13 +516,119 @@ let olympicRecordsFour = {
   // => ["Usain Bolt", "Mike Powel", "Michael Phelps", "Katie Ledecky"]
   
 //Data Structure
-const students = [
+const studentsThree = [
     "Bob",
     "Susy",
     "Ted",
     "Sarah",
     "Bill"
   ];
-console.log(students[0]); //Bob
-console.log(students[2]); //Ted
-console.log(students[4]); //Bill
+console.log(studentsThree[0]); //Bob
+console.log(studentsThree[2]); //Ted
+console.log(studentsThree[4]); //Bill
+
+const bob   = { name: "Bob", age: 17 };
+const susy  = { name: "Susy", age: 18 };
+const ted   = { name: "Ted", age: 18 };
+const sarah = { name: "Sarah", age: 20 };
+const bill  = { name: "Bill", age: 19 };
+console.log(bob.name); // <== Bob
+console.log(susy.age); // <== 18
+
+//Nested Data Structures
+//Objects in Arrays
+const students = [
+    { name: "Bob", age: 17 },
+    { name: "Susy", age: 18 },
+    { name: "Ted", age: 18 },
+    { name: "Sarah", age: 20 },
+    { name: "Bill", age: 19 }
+  ];
+  console.log(students[3].name); // <== Sarah
+  console.log(students[0].age); //17
+
+  //practice
+  const studentsTwo = [
+    { name: "Alice", age: 20 },
+    { name: "Taco", age: 22 },
+    { name: "Sarah", age: 23 }
+  ];
+  
+  studentsTwo.push({ name: "Steve", age: 25 });
+  
+  const taco = { name: "Taco", age: 21 };
+  studentsTwo.push(taco);
+  console.log(taco);
+  console.log(studentsTwo[0].name); // This will log "Alice"
+  
+  for (const student of studentsTwo) {
+    if (student.name === "Sarah") {
+      console.log(student.age); // This will log 23
+      break;
+    }
+  }
+  
+  //Arrays in Arrays
+  const twoD = [
+    ["Bob", "Susy", "Ted"],
+    ["Lilly", "Sarah", "Bill"],
+    ["Thomas", "Barry", "Alex"]
+  ]
+  console.log(twoD[1]); // <== [ 'Lilly', 'Sarah', 'Bill' ]
+  console.log(twoD[1][0]); // <== 'Lilly'
+  console.log(twoD[0][0]); // <== 'Bob'
+  console.log(twoD[0][3]); // <== undefined
+  console.log(twoD[3][0]); // TypeError: Cannot read property '0' of undefined
+  
+
+const classes = [
+    [
+      { firstName: 'Tomas', lastName: 'Bechtelar', age: 22 },
+      { firstName: 'Nico', lastName: 'Schamberger', age: 26 },
+      { firstName: 'Ashleigh', lastName: 'Kutch', age: 29 },
+      { firstName: 'Lulu', lastName: 'Considine', age: 20 },
+      { firstName: 'Garland', lastName: 'Waelchi', age: 21 }
+    ]
+];
+console.log(classes[0]); //object array
+console.log(classes[0][2]); // { firstName: 'Ashleigh', lastName: 'Kutch', age: 29 }
+console.log(classes[0][2].firstName); // 'Ashleigh'
+
+//Objects inside of Objects
+const classRoom = {
+    teacher:  { firstName: 'Greg', lastName: 'Dach', age: 38 }
+  };
+  console.log(classRoom.teacher.firstName); // <== 'Greg'
+  console.log(classRoom.teacher.age); // <== 38
+  
+
+  const classRoomTwo = {
+    teacher:  {
+      firstName: 'Greg',
+      lastName: 'Dach',
+      age: 38,
+      address: {
+        street: "3085 Kelton Knolls",
+        city: "Aldaside",
+        state: "Maryland"
+      }
+    }
+  };
+  
+  console.log(classRoomTwo.teacher.age);
+
+  //nested objects
+  const classRoomThree = {
+    teacher: { firstName: 'Marcelino', lastName: 'Padberg', age: 25 },
+    students: [
+      { firstName: 'Aliyah', lastName: 'Schulist', age: 18 },
+      { firstName: 'Cleveland', lastName: 'Towne', age: 28 },
+      { firstName: 'Jan', lastName: 'Quitzon', age: 18 },
+      { firstName: 'Alaina', lastName: 'Runolfsdottir', age: 18 },
+      { firstName: 'Gerhard', lastName: 'Bergstrom', age: 23 }
+    ]
+  };
+  console.log(classRoomThree.students[2].firstName); // <== 'Jan'
+  console.log(classRoomThree.teacher.age); // <== 25
+  console.log(classRoomThree.students[4].lastName);
+  
