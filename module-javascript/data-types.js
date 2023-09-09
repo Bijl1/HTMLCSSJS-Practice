@@ -632,3 +632,290 @@ const classRoom = {
   console.log(classRoomThree.teacher.age); // <== 25
   console.log(classRoomThree.students[4].lastName);
   
+
+
+const schoolSystem = {
+    schools: [
+      {
+        name: "Fake School 1",
+        classRooms: [
+          {
+            teacher: { firstName: 'Marcelino', lastName: 'Padberg', age: 25 },
+            students: [
+                { firstName: 'Aliyah', lastName: 'Schulist', age: 18 },
+                { firstName: 'Cleveland', lastName: 'Towne', age: 28 },
+                { firstName: 'Jan', lastName: 'Quitzon', age: 18 },
+                { firstName: 'Alaina', lastName: 'Runolfsdottir', age: 18 },
+                { firstName: 'Gerhard', lastName: 'Bergstrom', age: 23 }
+              ]
+          },
+          {
+            teacher: { firstName: 'Edwardo', lastName: 'Schowalter', age: 28 },
+            students: [
+              { firstName: 'Manley', lastName: 'Doyle', age: 18 },
+              { firstName: 'Maximilian', lastName: 'Gleichner', age: 19 },
+              { firstName: 'Sid', lastName: 'Rohan', age: 30 },
+              { firstName: 'Catalina', lastName: 'Hilpert', age: 27 },
+              { firstName: 'Gerald', lastName: 'O\'Keefe', age: 26 }
+            ]
+          }
+        ]
+       },
+       {
+        name: "Fake School 2",
+        classRooms: [
+          {
+            teacher: { firstName: 'Lucas', lastName: 'Schroeder', age: 29 },
+            students: [
+              { firstName: 'Giuseppe', lastName: 'Hegmann', age: 24 },
+              { firstName: 'Jennyfer', lastName: 'Hane', age: 19 },
+              { firstName: 'Mikayla', lastName: 'Braun', age: 23 },
+              { firstName: 'Rickie', lastName: 'White', age: 22 },
+              { firstName: 'Rose', lastName: 'Collins', age: 30 }
+            ]
+          },
+          {
+            teacher: { firstName: 'Green', lastName: 'Sauer', age: 25 },
+            students: [
+              { firstName: 'Melany', lastName: 'Welch', age: 25 },
+              { firstName: 'Paxton', lastName: 'Corkery', age: 22 },
+              { firstName: 'Nellie', lastName: 'Hauck', age: 26 },
+              { firstName: 'Eunice', lastName: 'Hirthe', age: 26 },
+              { firstName: 'Aylin', lastName: 'Barrows', age: 26 }
+             ]
+           }
+         ]
+       },
+       {
+        name: "Fake School 3",
+        classRooms: [
+          {
+            teacher: { firstName: 'Nikko', lastName: 'Crist', age: 42 },
+            students: [
+              { firstName: 'Christop', lastName: 'Hahn', age: 26 },
+              { firstName: 'Newell', lastName: 'Kemmer', age: 27 },
+              { firstName: 'Katheryn', lastName: 'Heller', age: 26 },
+              { firstName: 'Saul', lastName: 'Heathcote', age: 20 },
+              { firstName: 'Maudie', lastName: 'Haley', age: 30 }
+            ]
+          },
+          {
+            teacher: { firstName: 'Nathanael', lastName: 'Hansson', age: 50 },
+            students: [
+              { firstName: 'Jensen', lastName: 'Reichel', age: 21 },
+              { firstName: 'Lois', lastName: 'Kulas', age: 28 },
+              { firstName: 'Caterina', lastName: 'Wolff', age: 28 },
+              { firstName: 'Dahlia', lastName: 'Collier', age: 24 },
+              { firstName: 'Linwood', lastName: 'Langosh', age: 26 }
+            ]
+          }
+        ]
+      }
+    ]
+};
+  
+const newStudent = {
+    firstName: 'Lucille',
+    lastName: 'D. Lozano',
+    age: 54
+};
+  schoolSystem.schools[1].classRooms[0].students.push(newStudent);
+  
+  console.log(schoolSystem.schools[1].classRooms[0].students);
+  
+  console.log(schoolSystem.schools[1].name); // <== Fake School 2
+  console.log(schoolSystem.schools[1]);
+  //{ name: 'Fake School 2',
+  //  classRooms: 
+  //    [ 
+  //        { teacher: [Object], students: [Array] },
+  //        { teacher: [Object], students: [Array] } 
+  //    ] 
+  // }
+  
+  console.log(schoolSystem.schools[1].classRooms[0]);
+  // {
+  // 	teacher: { firstName: 'Lucas', lastName: 'Schroeder', age: 29 },
+  // 	students: [
+  // 		{ firstName: 'Giuseppe', lastName: 'Hegmann', age: 24 },
+  // 		{ firstName: 'Jennyfer', lastName: 'Hane', age: 19 },
+  // 		{ firstName: 'Mikayla', lastName: 'Braun', age: 23 },
+  // 		{ firstName: 'Rickie', lastName: 'White', age: 22 },
+  // 		{ firstName: 'Rose', lastName: 'Collins', age: 30 }
+  // 	]
+  // }
+  
+  //Retrieve the fake school 3 object
+  console.log(schoolSystem.schools[2]);
+  //Retrieve the teacher with the first name of Nathanael
+  console.log(schoolSystem.schools[2].classRooms[1].teacher.firstName);
+  //Retrieve the student with the first name of Saul
+  console.log(schoolSystem.schools[2].classRooms[0].students[3].firstName);
+
+  //JS OOP - objects, methods and the 'this' keyword
+  // Example of a VERY simple Monopoly game simulation
+// let squares = [100, -10, 0, 0, -40, -10, -10, 5, 0, -10, -50, -10, 0, 0, -50, -10];
+
+// // --- Initialization with methods ---
+// let player1 = {
+//   name: 'Joaquim',
+//   color: 'red',
+//   position: 0,
+//   cash: 1000,
+//   move() {
+//     let dice = 1 + Math.floor(6 * Math.random());
+//     this.position = (this.position + dice) % squares.length;
+//     this.cash += squares[this.position];
+//     if (this.cash < 0) {
+//       console.log(`Game over for ${this.name}.`);
+//     }
+//   },
+//   displayInfo() {
+//     console.log(`${this.name} is at position ${this.position} and has ${this.cash}€`);
+//   },
+// };
+
+// let player2 = {
+//   name: 'Maxence',
+//   color: 'blue',
+//   position: 0,
+//   cash: 1000,
+//   move() {
+//     let dice = 1 + Math.floor(6 * Math.random());
+//     this.position = (this.position + dice) % squares.length;
+//     this.cash += squares[this.position];
+//     if (this.cash < 0) {
+//       console.log(`Game over for ${this.name}.`);
+//     }
+//   },
+//   displayInfo() {
+//     console.log(`${this.name} is at position ${this.position} and has ${this.cash}€`);
+//   },
+// };
+
+// let player3 = {
+//   name: 'Mostafa',
+//   color: 'black',
+//   position: 0,
+//   cash: 1000,
+//   move() {
+//     let dice = 1 + Math.floor(6 * Math.random());
+//     this.position = (this.position + dice) % squares.length;
+//     this.cash += squares[this.position];
+//     if (this.cash < 0) {
+//       console.log(`Game over for ${this.name}.`);
+//     }
+//   },
+//   displayInfo() {
+//     console.log(`${this.name} is at position ${this.position} and has ${this.cash}€`);
+//   },
+// };
+
+// // --- Turn 1  ---
+// player1.move();
+// player2.move();
+// player3.move();
+// // --- Turn 2  ---
+// player1.move();
+// player2.move();
+// player3.move();
+// // --- Display info  ---
+// player1.displayInfo();
+// player2.displayInfo();
+// player3.displayInfo();
+
+// Example of a VERY simple Monopoly game simulation
+
+let squares = [100, -10, 0, 0, -40, -10, -10, 5, 0, -10, -50, -10, 0, 0, -50, -10];
+
+// Creation of the class
+class Player {
+  // The constructor is the method triggered with the `new` keyword
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
+    this.position = 0;
+    this.cash = 1000;
+  }
+
+  // Method move
+  move() {
+    let dice = 1 + Math.floor(6 * Math.random());
+    this.position = (this.position + dice) % squares.length;
+    this.cash += squares[this.position];
+    if (this.cash < 0) {
+      console.log(`Game over for ${this.name}.`);
+    }
+  }
+
+  // Method displayInfo
+  displayInfo() {
+    console.log(`${this.name} is at position ${this.position} and has ${this.cash}€`);
+  }
+}
+
+// --- Initialization of players ---
+let player1 = new Player('Joaquim', 'red');
+let player2 = new Player('Maxence', 'blue');
+let player3 = new Player('Mostafa', 'black');
+
+// --- Turn 1  ---
+player1.move();
+player2.move();
+player3.move();
+
+// --- Turn 2  ---
+player1.move();
+player2.move();
+player3.move();
+
+player1.displayInfo();
+player2.displayInfo();
+player3.displayInfo();
+
+
+
+//Practice
+const chuck = {
+    firstName: 'Chuck',
+    lastName: 'Norris',
+    birthDate: new Date('1940-03-10'),
+    jokes: [
+      'Chuck Norris counted to infinity... Twice.',
+      'Chuck Norris is the only man to ever defeat a brick wall in a game of tennis'
+    ],
+    displayInfo() {
+      console.log(`My name is ${this.firstName} ${this.lastName} and I have ${this.jokes.length} jokes.`);
+    },
+    getAge() {
+    // Hint: to get the current time, you can do: new Date()
+    // Hint: to get the birthDate, you can do: this.birthDate
+    // Hint: you can subtract 2 dates and you get the number of milliseconds
+      const currentDate = new Date();
+      const birthYear = this.birthDate.getFullYear(); 
+      const currentYear = currentDate.getFullYear();
+      const age = currentYear - birthYear;
+      return age;
+    },
+    addJoke(joke) {
+    // TODO (don't use return statement)
+      this.jokes.push(joke);
+    },
+    getRandomJoke() {
+    //TODO
+      const randomIndex = Math.floor(Math.random() * this.jokes.length);
+      return this.jokes[randomIndex];
+    }
+  };
+  
+  chuck.displayInfo();
+  console.log('getAge', chuck.getAge()); //83 2023
+  chuck.addJoke('Chuck Norris can divide by zero.');
+  console.log('getRandomJoke', chuck.getRandomJoke());
+  chuck.addJoke('Chuck Norris kills flies with his gun.');
+  console.log('getRandomJoke', chuck.getRandomJoke());
+  chuck.addJoke('Chuck Norris was once in a knife fight, and the knife lost.');
+  console.log('getRandomJoke', chuck.getRandomJoke());
+  chuck.displayInfo();
+  
+
