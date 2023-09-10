@@ -1017,3 +1017,50 @@ console.log('Area of s1 =', s1.calculateArea()); // 25
 const s2 = new Square(10);
 console.log('Perimeter of s2 =', s2.calculatePerimeter()); // 40
 console.log('Area of s2 =', s2.calculateArea()); // 100
+
+
+//this
+const ticket1 = {
+  flightCode: 'UA515',
+
+  printThis: function () {
+    console.log(this);
+  }
+};
+
+ticket1.printThis(); //  -->  ticket1 {  flightCode: "UA515",  printThis: ƒ }
+
+//Example 2
+const ticket3 = {
+  airline: 'United',
+  flight: 'UA336',
+
+  printTicket: function () {
+    console.log(`FLIGHT: ${this.airline} ${this.flight}`);
+  },
+
+  details: {
+    planeType: 'Airbus',
+    planeModel: 'A380',
+    printDetails: function () {
+      console.log(`DETAILS: ${this.planeType} ${this.planeModel}`);
+    }
+  }
+};
+
+ticket3.printTicket(); // FLIGHT: United UA336              -->  this === ticket3
+
+ticket3.details.printDetails(); // DETAILS: Airbus A380     -->  this === ticket3.details
+
+//Example 3
+const ticket2 = {
+  flightCode: 'UA520',
+  passenger: {
+    name: 'Brendan Eich',
+    printThis: function () {
+      console.log(this);
+    }
+  }
+};
+
+ticket2.passenger.printThis(); // passenger { name: "Brendan Eich", printThis: ƒ }
