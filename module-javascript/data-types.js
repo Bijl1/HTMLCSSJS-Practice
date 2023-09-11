@@ -1064,3 +1064,99 @@ const ticket2 = {
 };
 
 ticket2.passenger.printThis(); // passenger { name: "Brendan Eich", printThis: ƒ }
+
+
+//In arrow () => functions
+const person = {
+  name: 'Anna',
+
+  regularMethod: function () {
+    console.log('regularMethod this:', this);
+
+    const arrowFunc = () => console.log('arrowFunc this:', this);
+    arrowFunc();
+
+    // arrow function will borrow `this` value from the surrounding scope
+    // of `regularMethod` where it was created
+  }
+};
+
+person.regularMethod(); // > regularMethod this: {name: "Anna", regularMethod: ƒ}
+// > arrowFunc this:     {name: "Anna", regularMethod: ƒ}
+
+
+
+//setTimeout and setInterval
+class Clock {
+  constructor() {
+    this.time = 0;
+
+    this.tickRegular = function () {
+      console.log();
+      this.time += 1;
+      console.log(this.time);
+    };
+  }
+}
+const clockA = new Clock();
+
+setInterval(clockA.tickRegular, 1000);
+
+
+//new (in a class/constructor function)
+class Ticket {
+  constructor(flightV, fromV, toV) {
+    // this = {}
+    (this.flight = flightV), (this.from = fromV), (this.to = toV);
+
+    // this = {flight: '...', from: '...', to: '...' }
+    // return this
+  }
+}
+const t1 = new Ticket('UA2638', 'MIA', 'BCN');
+const t2 = new Ticket('UA521', 'JFK', 'SFO');
+
+
+// Methods call() and apply() are used to invoke a function once and pass it a custom value of this for that one invocation.
+function printThis() {
+  console.log(this);
+}
+
+const office = {
+  address: 'C. Pamplona 96',
+  color: 'gray'
+};
+
+const school = {
+  address: '120 SW 8th St',
+  color: 'white'
+};
+
+printThis(); // --> Window
+printThis.call(office); //  -->  office { address: "C. Pamplona 96", color: "gray" }
+printThis.call(school); //  -->  school { address: "120 SW 8th St", color: "white" }
+
+//bind()
+const car = {
+  brand: 'Tesla',
+  model: 'S',
+  color: 'White',
+  details: function () {
+    console.log(`${this.brand} ${this.model} ${this.color}`);
+  }
+};
+
+car.details(); // -->   Tesla S White
+
+const macPro15 = {
+  brand: 'Apple',
+  model: 'MacBook Pro 15',
+  color: 'Silver'
+};
+
+// Create a new function and bind `this` to object `macPro15`
+const boundDetails = car.details.bind(macPro15);
+
+boundDetails(); // --> Apple MacBook Pro 15 Silver
+// new function `boundDetails` has `this`
+// permanently bound to object `macPro15`
