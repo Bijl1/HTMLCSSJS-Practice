@@ -1160,3 +1160,21 @@ const boundDetails = car.details.bind(macPro15);
 boundDetails(); // --> Apple MacBook Pro 15 Silver
 // new function `boundDetails` has `this`
 // permanently bound to object `macPro15`
+
+
+
+//Function declaration
+function calcSum (x, y) {
+  return x + y;
+}
+
+console.log(calcSum(12, 23)); // => 35
+
+
+// function expression - is an unnamed function stored in a variable
+const welcomeMessage = function (message) {
+  console.log(message);
+};
+
+welcomeMessage('So nice to have you here! Welcome!');
+// => So nice to have you here! Welcome!
