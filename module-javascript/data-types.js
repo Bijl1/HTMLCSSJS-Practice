@@ -1780,3 +1780,327 @@ const arr1 = ['one', 'two', 'three'];
 const arr2 = arr1.reverse();
 console.log(arr1); // ['three', 'two', 'one'] // --> original array is mutated
 console.log(arr2); // ['three', 'two', 'one']
+
+
+//JS Variable scope, hoisting and shadowing
+
+const message = 'Hello from the global scope!';
+function sayHelloFromLocalScope() {
+  const greeting = 'Hello from functional/local scope!';
+  return greeting;
+}
+console.log(message); // <== Hello from the global scope!
+console.log(greeting); // <== ReferenceError: greeting is not defined
+
+
+const message = 'Hello from the global scope!';
+function sayHelloFromLocalScope() {
+  const greeting = 'Hello from functional/local scope!';
+  return greeting;
+}
+console.log(message); // <== Hello from the global scope!
+console.log(greeting); // <== ReferenceError: greeting is not defined
+
+
+let outerVar = 1;
+function inner() {
+  let innerVar = 2;
+  console.log(outerVar);
+}
+console.log(innerVar); // => ReferenceError: innerVar is not defined
+
+
+
+for (var j = 1; j <= 30; j++) {
+  console.log(`Iteration number: ${j}`);
+}
+console.log(`After the loop: ${j}`);
+// [...]
+// Iteration number: 28
+// Iteration number: 29
+// Iteration number: 30
+// After the loop 31
+
+
+var nameSeven = 'Ironhacker';
+if (true) {
+  var nameSeven = 'Ted';
+  console.log(`Name inside if statement: ${nameSeven}`);
+}
+console.log(`Name outside if statement: ${nameSeven}`);
+// Name inside if statement: Ted
+// Name outside if statement: Ted
+
+
+let nameEight = 'Ironhacker';
+if (true) {
+  let nameEight = 'Ted';
+  console.log(`Name inside if statement: ${nameEight}`);
+}
+console.log(`Name outside if statement: ${nameEight}`);
+// Name inside if statement: Ted
+// Name outside if statement: Ironhacker
+
+
+//Shadowing
+//A variable shadowing occurs when a variable declared within a certain scope has the same name as a variable declared in an outer scope.
+let a = 1;
+let b = 2;
+
+function inner() {
+  a = 4; // reassigned
+  let b = 3; // declared in an inner scope
+}
+inner();
+console.log(a); // => 4
+console.log(b); // => 2
+
+
+//JS Value vs Reference and Mutable Data Types
+//Primitives - passed (copied) by value
+//Primitive data types are stored and copied by value, which means two values are equal if they have the same value.
+let price1 = 20.99;
+let price2 = 20.99;
+console.log(price1 === price2); // => true
+let name6 = 'Ana';
+let name7 = 'Ana';
+console.log(name6 === name7); // => true
+
+
+let price8 = 20.99;
+let price9 = price8;
+console.log(price8 === price9); // => true
+
+
+//Non-primitives - passed (copied) by reference
+const book10 = {
+  author: 'Charlotte Bronte',
+};
+const book11 = book10; // => copy the book1 into the new object - book2
+console.log(book10); // => { author: 'Charlotte Bronte' }
+console.log(book11); // => { author: 'Charlotte Bronte' }
+// CHANGE THE VALUE OF AUTHOR PROPERTY IN BOOK1:
+book10.author = 'Jane Austen';
+// BOTH ARE CHANGED
+console.log(book10); // => { author: 'Jane Austen' }
+console.log(book11); // => { author: 'Jane Austen' }
+// CHANGE THE VALUE OF AUTHOR PROPERTY IN BOOK2:
+book11.author = 'Edith Wharton';
+// BOTH ARE CHANGED
+console.log(book10); // => { author: 'Edith Wharton' }
+console.log(book11); // => { author: 'Edith Wharton' }
+
+
+// object:
+const book1 = {
+  author: 'Charlotte Bronte',
+};
+const book2 = book1; // => copy the book1 into the new object - book2
+console.log(book1 === book2); // => true
+
+// array:
+const students2 = ['Ana', 'John', 'Fabio'];
+const ironhackers = students2;
+console.log(students2 === ironhackers); // => true
+
+
+
+//f two objects or arrays look completely the same, but they don’t reference the same object/array, they are not the same.
+// objects:
+const book3 = {
+  author: 'Charlotte Bronte',
+};
+const book4 = {
+  author: 'Charlotte Bronte',
+};
+console.log(book3 === book4); // => false
+
+// arrays:
+const students1 = ['Ana', 'John', 'Fabio'];
+const ironhackers1 = ['Ana', 'John', 'Fabio'];
+console.log(students1 === ironhackers1); // => false
+
+
+//.Object.assign()
+const book5 = {
+  author: 'Charlotte Bronte',
+};
+const book6 = Object.assign({}, book5);
+console.log(book6); // => { author: "Charlotte Bronte" }
+console.log(book5 === book6); // => false
+
+
+
+//Object.assign() creates so-called shallow copy since all nested properties still be copied by reference.
+const book8 = {
+  author: 'Charlotte Bronte',
+  publishers: [
+    {companyName: 'AB'},
+    {companyName: 'CD'}
+  ]
+}
+
+const book7 = Object.assign({}, book8);
+book8.publishers[0] = {
+  companyName: 'Super Cool Company', // => here we changed the name of
+  // the 1st publisher in the original (book1)
+};
+book8.author = 'Test Test'; // => here we changed the author name in the original (book1)
+console.log(book7);
+//  { author: 'Charlotte Bronte', // => THIS DIDN'T CHANGE
+//    publishers: [
+//        { companyName: 'Super Cool Company' }, // => THIS IS CHANGED SINCE IT'S COPIED BY REFERENCE
+//        { companyName: 'CD' }
+
+
+
+
+const book8 = {
+  author: 'Charlotte Bronte',
+};
+const book9 = {}; // => INITIALIZED EMPTY OBJECT
+for (let prop in book8) {
+  book9[prop] = book8[prop];
+}
+book8.author = 'William Shakespeare'; // => changed the original
+console.log(book8); // => { author: 'William Shakespeare' } ==> changed
+console.log(book9); // => { author: 'Charlotte Bronte' } ==> DIDN'T CHANGE
+
+
+
+const book10 = {
+  author: 'Charlotte Bronte',
+  publishers: [
+    (publisher1 = {
+      companyName: 'AB',
+    }),
+    (publisher2 = {
+      companyName: 'CD',
+    }),
+  ],
+};
+
+function cloneObject(object) {
+  let clone = {};
+  for (let prop in object) {
+    if (object[prop] != null && typeof object[prop] == 'object') {
+      clone[prop] = cloneObject(object[prop]);
+    } else {
+      clone[prop] = object[prop];
+    }
+  }
+  return clone;
+}
+let book11 = cloneObject(book10); // call the function and create the copy => book4
+book1.publishers[0] = {
+  companyName: 'Super Cool Company', // => change the deep property of the book1
+};
+book10.author = 'William Shakespeare'; // change the property of the book1
+console.log(book10);
+console.log(book11);
+
+
+//copy an array
+//ES6 spread operator [...array]
+const students3 = ['Ana', 'John', 'Fabio'];
+function cloneArray(array) {
+  let arrCopy = [];
+  for (let i = 0; i < array.length; ++i) {
+    arrCopy[i] = array[i];
+  }
+  return arrCopy;
+}
+const ironhackers2 = cloneArray(students3); // => invoke function and assign result to variable "ironhackers"
+students3.push('Sandra');
+console.log(students3); // => [ 'Ana', 'John', 'Fabio', 'Sandra' ]
+console.log(ironhackers2); // => [ 'Ana', 'John', 'Fabio' ]
+
+
+
+//JSON.parse(JSON.stringify())
+// multidimensional array
+const students11 = [
+  ['Ana', 'John', 'Fabio'],
+  ['Alex', 'Mike', 'Vero'],
+];
+// // case 1: using spread operator
+// const ironhackers = [...students];
+// students[0].push('Sandra');
+// console.log(students); // [ [ 'Ana', 'John', 'Fabio', 'Sandra' ],
+// // [ 'Alex', 'Mike', 'Vero' ] ]
+// console.log(ironhackers); // [ [ 'Ana', 'John', 'Fabio', 'Sandra' ],
+// // [ 'Alex', 'Mike', 'Vero' ] ]
+
+// case 2: using JSON.parse(JSON.stringify())
+const ironhackers3 = JSON.parse(JSON.stringify(students11));
+students11[0].push('Sandra');
+console.log(students11); // [ [ 'Ana', 'John', 'Fabio', 'Sandra' ],
+// [ 'Alex', 'Mike', 'Vero' ] ]
+console.log(ironhackers3); // [ [ 'Ana', 'John', 'Fabio' ], [ 'Alex', 'Mike', 'Vero' ] ]
+
+
+//Mutable Data Types
+//ES6 spread operator [...]
+const students12 = ['Ana', 'John', 'Fabio'];
+const ironhackers4 = [...students12, 'Ariel'];
+console.log(students12); // => [ 'Ana', 'John', 'Fabio' ]
+console.log(ironhackers4); // => [ 'Ana', 'John', 'Fabio', 'Ariel' ]
+
+const students13 = ['Ana', 'John', 'Fabio'];
+const ironhackers5 = ['Ariel', ...students13];
+console.log(students13); // => [ 'Ana', 'John', 'Fabio' ]
+console.log(ironhackers5); // => ['Ariel',  'Ana', 'John', 'Fabio' ]
+
+
+//Removing elements from arrays
+//.splice() - is used to remove a number of elements from the array starting at a certain position (index).
+const students14 = ['Ana', 'John', 'Fabio'];
+students14.splice(1, 1);
+console.log(students14); // => [ 'Ana', 'Fabio' ]
+
+
+//.pop() - is a method used to remove elements from the end of the array.
+const students15 = ['Ana', 'John', 'Fabio'];
+students15.pop();
+console.log(students15); // => [ 'Ana', 'John' ]
+
+//.shift() - is a method used to remove the first element from the array.
+const students16 = ['Ana', 'John', 'Fabio'];
+students16.shift();
+console.log(students16); // => [ 'John', 'Fabio' ]
+
+
+//.slice() and ES6 spread operator - when used together can save us a lot of trouble since the original array is not mutated.
+const students17 = ['Ana', 'John', 'Fabio'];
+const ironhackers6 = [...students17.slice(0, 1)];
+console.log(students17); // => [ 'Ana', 'John', 'Fabio' ]
+console.log(ironhackers6); // => [ 'Ana' ]
+
+
+//Objects and mutability
+//ES6 spread operator to add properties to objects without mutating it.
+const book = {
+  author: 'Charlotte Bronte',
+};
+const theSameBook = { ...book, pages: 400 };
+console.log(book); // => { author: 'Charlotte Bronte' }
+console.log(theSameBook); // => { author: 'Charlotte Bronte', pages: 400 }
+
+
+//Object destructuring is a way to remove elements from objects without mutating it.
+const book1 = {
+  author: 'Charlotte Bronte',
+  pages: 400,
+  publishers: [
+    {
+      name: 'publisher1',
+    },
+    {
+      name: 'publisher2',
+    },
+  ],
+};
+const { author, ...theRest } = book1;
+console.log(author); // => Charlotte Bronte
+console.log(theRest);
+// => { pages: 400, publishers: [ { name: 'publisher1' }, { name: 'publisher2' } ] }
