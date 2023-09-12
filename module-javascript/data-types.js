@@ -1734,3 +1734,49 @@ numbersTen.sort(function (a, b) {
 numbersTen.sort((a, b) => b - a);
 console.log(numbersTen);
 // [ 223, 112, 99, 68, 64, 23, 22, 18, 9, 1, 0 ]
+
+
+//Sorting strings
+//Notice how uppercase letters are sorted before lowercase ones, ie: "A" then "a"
+//ASCending order
+const wordsTwo = ['Hello', 'Goodbye', 'AA', 'First', 'A', 'a', 'Second', 'b', 'Third'];
+wordsTwo.sort();
+console.log(wordsTwo);
+// ["A", "AA", "First", "Goodbye", "Hello", "Second", "Third", "a", "b"]
+
+//DESCending order
+const wordsThree = ['Hello', 'Goodbye', 'AA', 'First', 'A', 'a', 'Second', 'b', 'Third'];
+wordsThree.sort().reverse();
+console.log(wordsThree);
+// ["b", "a", "Third", "Second", "Hello", "Goodbye", "First", "AA", "A"]
+
+//DESC order a different compare function
+const wordsFour = ['Hello', 'Goodbye', 'AA', 'First', 'A', 'a', 'Second', 'b', 'Third'];
+
+wordsFour.sort(function (a, b) {
+  if (a < b) return 1; //  1 here (instead of -1 for ASC)
+  if (a > b) return -1; // -1 here (instead of  1 for ASC)
+  if (a === 0) return 0;
+});
+console.log(wordsFour);
+// ["b", "a", "Third", "Second", "Hello", "Goodbye", "First", "AA", "A"]
+
+//Can also sort by different attributes, such as DESC length
+const wordsFive = ['b', 'a', 'Third', 'Second', 'Hello', 'Goodbye', 'First', 'AA', 'A'];
+
+wordsFive.sort(function (a, b) {
+  if (a.length < b.length) return 1; //  1 here (instead of -1 for ASC)
+  if (a.length > b.length) return -1; // -1 here (instead of  1 for ASC)
+  if (a.length === b.length) return 0;
+});
+console.log(wordsFive);
+// ["Goodbye", "Second", "Hello", "First", "Third", "AA", "A", "a", "b"]
+
+
+//.reverse()
+array.reverse();
+//
+const arr1 = ['one', 'two', 'three'];
+const arr2 = arr1.reverse();
+console.log(arr1); // ['three', 'two', 'one'] // --> original array is mutated
+console.log(arr2); // ['three', 'two', 'one']
