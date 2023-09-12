@@ -1706,3 +1706,31 @@ const result = numbersSeven.filter(number => number % 2 !== 0 && number > 42);
 console.log(result);
 // [ 123, 99, 73, 45 ]
 
+//.sort()
+const numbersEight = [22, 23, 99, 68, 1, 0, 9, 112, 223, 64, 18];
+numbersEight.sort();
+console.log(numbersEight);
+// [ 0, 1, 112, 18, 22, 223, 23, 64, 68, 9, 99 ]
+
+
+
+const numbersNine = [22, 23, 99, 68, 1, 0, 9, 112, 223, 64, 18];
+// ES5
+numbersNine.sort(function (a, b) {
+  return a - b;
+});
+// ES6
+numbersNine.sort((a, b) => a - b);
+console.log(numbers);
+// [ 0, 1, 9, 18, 22, 23, 64, 68, 99, 112, 223 ]
+
+//reverse numerical order
+const numbersTen = [22, 23, 99, 68, 1, 0, 9, 112, 223, 64, 18];
+// ES5
+numbersTen.sort(function (a, b) {
+  return b - a;
+});
+// ES6
+numbersTen.sort((a, b) => b - a);
+console.log(numbersTen);
+// [ 223, 112, 99, 68, 64, 23, 22, 18, 9, 1, 0 ]
