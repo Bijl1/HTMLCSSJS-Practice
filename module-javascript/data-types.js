@@ -56,9 +56,9 @@ var message = 'Hello ' + customer.firstName + ' ' + customer.lastName + '!!';
 console.log(message); //Hello Foo Kim!!
 
 //ES6 Interpolation style
-let customer = { firstName: 'Foo', lastName: 'Kim' };
-let message = `Hello ${customer.firstName} ${customer.lastName}!!`;
-console.log(message);
+let customer20 = { firstName: 'Foo', lastName: 'Kim' };
+let message20 = `Hello ${customer20.firstName} ${customer20.lastName}!!`;
+console.log(message20);
 
 //Accessing characters
 const greeting = 'Hello there!';
@@ -77,20 +77,20 @@ console.log(goat[9]); // <== r
 console.log(goat[-2]); // undefined
 
 //Finding a substring
-const message = "Don't be sad, be happy!";
-console.log(message.indexOf("Don't")); // <== 0
-console.log(message.indexOf('t')); // <== 4
-console.log(message.indexOf('Be')); // <== -1 (capitalized Be ≠ lowercased be)
-console.log(message.indexOf('py')); // 20
+const message21 = "Don't be sad, be happy!";
+console.log(message21.indexOf("Don't")); // <== 0
+console.log(message21.indexOf('t')); // <== 4
+console.log(message21.indexOf('Be')); // <== -1 (capitalized Be ≠ lowercased be)
+console.log(message21.indexOf('py')); // 20
 
-const message = "Don't be sad, be happy!";
-console.log(message.indexOf('be')); // <== 6
-console.log(message.indexOf('be', 7)); // <== 14
+const message22 = "Don't be sad, be happy!";
+console.log(message22.indexOf('be')); // <== 6
+console.log(message22.indexOf('be', 7)); // <== 14
 
 //Practice
 //Write code that finds the index of the letter “j” in My favorite dessert is jello.
-const message = "My favorite dessert is jello.";
-console.log(message.indexOf('j')); //23
+const message23 = "My favorite dessert is jello.";
+console.log(message23.indexOf('j')); //23
 
 //Sorting the strings .localeCompare()
 // 'str1'.localeCompare('str2');
@@ -188,34 +188,34 @@ console.log(city[0]); // <== m
 city[0] = 'M';
 console.log(city); // <== miami
 
-let city = 'miami';
-console.log(city); // <== miami
-// we CAN re-assign our variable to another value
-city = 'berlin';
-console.log(city); // <== berlin
-// but still CAN NOT change the value "berlin"
-city[0] = 'B';
-console.log(city); // <== berlin
+// let city = 'miami';
+// console.log(city); // <== miami
+// // we CAN re-assign our variable to another value
+// city = 'berlin';
+// console.log(city); // <== berlin
+// // but still CAN NOT change the value "berlin"
+// city[0] = 'B';
+// console.log(city); // <== berlin
 
-city = city.charAt(0).toUpperCase() + city.slice(1);
-console.log(city); // <== Berlin
+// city = city.charAt(0).toUpperCase() + city.slice(1);
+// console.log(city); // <== Berlin
 
 
-const message = "Don't be sad, be happy!";
-console.log(message.slice(0, 4)); // <== Don'
-console.log(message.slice(14,23)); //be happy!
-console.log(message); // <== Don't be sad, be happy!
+const message14 = "Don't be sad, be happy!";
+console.log(message14.slice(0, 4)); // <== Don'
+console.log(message14.slice(14,23)); //be happy!
+console.log(message14); // <== Don't be sad, be happy!
 
 //JS Conditionals and Loops
 //Conditional Statements
 //if...else
-if (condition1) {
-    // code to execute if condition1 is true
-  } else if (condition2) {
-    // code to execute if condition2 is true
-  } else {
-    // code to execute if condition1 and condition2 are false
-  }  
+// if (condition1) {
+//     // code to execute if condition1 is true
+//   } else if (condition2) {
+//     // code to execute if condition2 is true
+//   } else {
+//     // code to execute if condition1 and condition2 are false
+//   }  
 
 
 // Sample age variable for testing
@@ -229,23 +229,22 @@ if (userAge >= 54) {
   console.log("Younger than 13");
 }
 
-//if..else
-if (condition) {
-    if (nestedCondition) {
-      // The code will be executed if
-      // condition === true && nestedCondition === true
-    } else {
-      // The code will be executed if
-      // condition === true && nestedCondition === false
-    }
-  } else {
-    // The code will be executed if
-    // condition === false
-  }
+// //if..else
+// if (condition) {
+//     if (nestedCondition) {
+//       // The code will be executed if
+//       // condition === true && nestedCondition === true
+//     } else {
+//       // The code will be executed if
+//       // condition === true && nestedCondition === false
+//     }
+//   } else {
+//     // The code will be executed if
+//     // condition === false
+//   }
   
 const number1 = parseInt(prompt('First number:'));
 const number2 = parseInt(prompt('Second number:'));
-
 if (number1 === number2) {
   console.log('The numbers are equal.');
 } else {
@@ -1784,21 +1783,21 @@ console.log(arr2); // ['three', 'two', 'one']
 
 //JS Variable scope, hoisting and shadowing
 
-const message = 'Hello from the global scope!';
+const message25 = 'Hello from the global scope!';
 function sayHelloFromLocalScope() {
   const greeting = 'Hello from functional/local scope!';
   return greeting;
 }
-console.log(message); // <== Hello from the global scope!
+console.log(message25); // <== Hello from the global scope!
 console.log(greeting); // <== ReferenceError: greeting is not defined
 
 
-const message = 'Hello from the global scope!';
+const message26 = 'Hello from the global scope!';
 function sayHelloFromLocalScope() {
   const greeting = 'Hello from functional/local scope!';
   return greeting;
 }
-console.log(message); // <== Hello from the global scope!
+console.log(message26); // <== Hello from the global scope!
 console.log(greeting); // <== ReferenceError: greeting is not defined
 
 
@@ -1955,20 +1954,20 @@ console.log(book7);
 
 
 
-const book8 = {
+const book15 = {
   author: 'Charlotte Bronte',
 };
 const book9 = {}; // => INITIALIZED EMPTY OBJECT
-for (let prop in book8) {
-  book9[prop] = book8[prop];
+for (let prop in book15) {
+  book9[prop] = book15[prop];
 }
-book8.author = 'William Shakespeare'; // => changed the original
-console.log(book8); // => { author: 'William Shakespeare' } ==> changed
+book15.author = 'William Shakespeare'; // => changed the original
+console.log(book15); // => { author: 'William Shakespeare' } ==> changed
 console.log(book9); // => { author: 'Charlotte Bronte' } ==> DIDN'T CHANGE
 
 
 
-const book10 = {
+const book16 = {
   author: 'Charlotte Bronte',
   publishers: [
     (publisher1 = {
@@ -1991,13 +1990,13 @@ function cloneObject(object) {
   }
   return clone;
 }
-let book11 = cloneObject(book10); // call the function and create the copy => book4
+let book17 = cloneObject(book16);
 book1.publishers[0] = {
-  companyName: 'Super Cool Company', // => change the deep property of the book1
+  companyName: 'Super Cool Company', //  change the deep property of the book1
 };
-book10.author = 'William Shakespeare'; // change the property of the book1
-console.log(book10);
-console.log(book11);
+book16.author = 'William Shakespeare'; // change the property of the book1
+console.log(book16);
+console.log(book17);
 
 
 //copy an array
@@ -2088,7 +2087,7 @@ console.log(theSameBook); // => { author: 'Charlotte Bronte', pages: 400 }
 
 
 //Object destructuring is a way to remove elements from objects without mutating it.
-const book1 = {
+const book18 = {
   author: 'Charlotte Bronte',
   pages: 400,
   publishers: [
@@ -2100,7 +2099,77 @@ const book1 = {
     },
   ],
 };
-const { author, ...theRest } = book1;
+const { author, ...theRest } = book18;
 console.log(author); // => Charlotte Bronte
 console.log(theRest);
 // => { pages: 400, publishers: [ { name: 'publisher1' }, { name: 'publisher2' } ] }
+
+
+
+//JavaScript Async and Callbacks
+//Asynchronous programming
+function getFirstElementOfArray(array1) {
+  return array1[0];
+}
+const array1 = ['Madrid', 'Barcelona', 'Miami'];
+const firstElement = getFirstElementOfArray(array1);
+console.log(firstElement); // <== Madrid
+
+
+//setTimeout() sets a timer that executes a callback function once the timer expires.
+//const timeoutId = setTimeout (callbackFunction [, 'delay]);
+// ES5
+function someCallbackFunction() {
+  console.log('Hey there, Ironhackers!');
+}
+const timeoutId = setTimeout(someCallbackFunction, 1000);
+
+
+//setTimeout()
+// ES5
+const timeoutId1 = setTimeout(function () {
+  console.log('Hey there, Ironhackers!');
+}, 1000);
+
+// ES6
+const timeoutId2 = setTimeout(() => {
+  console.log('Hey there, Ironhackers!');
+}, 1000);
+
+
+//Practice
+let counter = 1;
+const callbackFunction = function () {
+  console.log(counter);
+  timeoutId = setTimeout(callbackFunction, 1000);
+  counter += 1;
+  if (counter > 10) {
+    clearTimeout(timeoutId);
+  }
+};
+let timeoutId3 = setTimeout(callbackFunction, 1000);
+
+//setInterval()
+//Syntax const intervalId = setInterval(callbackFunction, delay);
+let e = 1;
+const intervalId = setInterval(function () {
+  console.log(e);
+  e++;
+  if (e > 10) {
+    clearInterval(intervalId);
+  }
+}, 1000);
+
+
+//Practice
+//Let’s do a reverse countdown from 10 to 0. When the countdown is zero, it should show “Pop!” and stop the interval.
+let r = 10;
+const intervalId1 = setInterval(function () {
+  if (r > 0) {
+    console.log(r);
+  } else {
+    console.log('Pop!');
+    clearInterval(intervalId1);
+  }
+  r--;
+}, 1000);
