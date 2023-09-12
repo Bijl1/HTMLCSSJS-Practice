@@ -1550,3 +1550,159 @@ numbersFour.forEach(function (number) {
 });
 console.log(totalOne);
 // 10
+
+//Practice
+const menu = [
+  { name: 'Carrots', calories: 150 },
+  { name: 'Steak', calories: 350 },
+  { name: 'Broccoli', calories: 120 },
+  { name: 'Chicken', calories: 250 },
+  { name: 'Pizza', calories: 520 }
+];
+
+let totalCalories = 0;
+menu.forEach(function (item) {
+  totalCalories += item.calories; 
+});
+const averageCalories = totalCalories / menu.length; 
+console.log(averageCalories); //278
+
+
+
+const product = {
+  name: 'AmazonBasics Apple Certified Lightning to USB Cable',
+  price: 7.99,
+  manufacturer: 'Amazon',
+  reviews: [
+    { user: 'Pavel Nedved', comments: 'It was really useful, strongly recommended', rate: 4 },
+    { user: 'Alvaro Trezeguet', comments: 'It lasted 2 days', rate: 1 },
+    { user: 'David Recoba', comments: 'Awesome', rate: 5 },
+    { user: 'Jose Romero', comments: 'Good value for money', rate: 4 },
+    { user: 'Antonio Cano', comments: 'It broked really fast', rate: 2 }
+  ]
+};
+const totalReviews = product.reviews.reduce(function (acc, review) {
+  return acc + review.rate;
+}, 0); // starts acc to 0
+const averageRate = totalReviews / product.reviews.length;
+console.log(`averageRate rate: ${averageRate}`); // <== averageRate rate:  3.2
+
+
+//.filter() method iterates through an array and creates a new array with all elements that pass the condition we set.
+//ES5
+const numbersFive = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbersFive.filter(function (number) {
+  return number % 2 === 0;
+});
+console.log(evenNumbers); // <== [ 2, 4, 6 ]
+
+//ES6
+const numbersSix = [1, 2, 3, 4, 5, 6];
+const evenNumbersTwo = numbersSix.filter(number => number % 2 === 0);
+console.log(evenNumbersTwo); // <== [ 2, 4, 6 ]
+
+//Practice
+const peopleTwo = [
+  { name: 'Candice', age: 25 },
+  { name: 'Tammy', age: 30 },
+  { name: 'Allen', age: 20 },
+  { name: 'Nettie', age: 21 },
+  { name: 'Stuart', age: 17 },
+  { name: 'Bill', age: 19 }
+];
+
+// your code...
+const ofDrinkingAge = peopleTwo.filter(person => person.age >= 21);
+console.log(ofDrinkingAge);
+// [
+//   { name: 'Candice', age: 25 },
+//   { name: 'Tammy', age: 30 },
+//   { name: 'Nettie', age: 21 }
+// ]
+
+
+
+const places = [
+  {
+    title: "Awesome Suite 20' away from la Rambla",
+    price: 200,
+    type: 'Private Room',
+    pool: true,
+    garage: false
+  },
+  {
+    title: 'Private apartment',
+    price: 190,
+    type: 'Entire Place',
+    pool: true,
+    garage: true
+  },
+  {
+    title: 'Apartment with awesome views',
+    price: 400,
+    type: 'Entire Place',
+    pool: false,
+    garage: false
+  },
+  {
+    title: 'Apartment in la Rambla',
+    price: 150,
+    type: 'Private Room',
+    pool: false,
+    garage: true
+  },
+  {
+    title: 'Comfortable place in Barcelona´s center',
+    price: 390,
+    type: 'Entire place',
+    pool: true,
+    garage: true
+  },
+  {
+    title: 'Room near Sagrada Familia',
+    price: 170,
+    type: 'Private Room',
+    pool: false,
+    garage: false
+  },
+  {
+    title: 'Great house next to Camp Nou',
+    price: 140,
+    type: 'Entire place',
+    pool: true,
+    garage: true
+  },
+  {
+    title: 'New apartment with 2 beds',
+    price: 2000,
+    type: 'Entire place',
+    pool: false,
+    garage: true
+  },
+  {
+    title: 'Awesome Suite',
+    price: 230,
+    type: 'Private Room',
+    pool: false,
+    garage: false
+  },
+  {
+    title: "Apartment 10' from la Rambla",
+    price: 930,
+    type: 'Entire place',
+    pool: true,
+    garage: true
+  }
+];
+// your code...
+const poolFilter = places.filter(place => place.pool === true);
+console.log(poolFilter); //list of pool available.
+
+
+//odd numbers - Given an array of numbers, filter out the ones that are not even, and are greater than 42.
+const numbersSeven = [1, 60, 112, 123, 100, 99, 73, 45];
+// your code...
+const result = numbersSeven.filter(number => number % 2 !== 0 && number > 42);
+console.log(result);
+// [ 123, 99, 73, 45 ]
+
