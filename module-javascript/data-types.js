@@ -1178,3 +1178,375 @@ const welcomeMessage = function (message) {
 
 welcomeMessage('So nice to have you here! Welcome!');
 // => So nice to have you here! Welcome!
+
+
+
+//callback
+function eatDinner(callback) {
+  // the word "callback" is just a placeholder
+  // you can use any other word
+  console.log('Eating the dinner!');
+  callback();
+}
+
+function eatDessert() {
+  console.log('Eating the dessert!');
+}
+
+eatDinner(eatDessert); // <== When passing a function as an argument, do not use ()
+// Eating the dinner!
+// Eating the dessert!
+
+
+//Example 2
+function putShirt() {
+  console.log('Putting on the shirt.');
+}
+
+function putSocks () {
+  console.log('Putting on the socks.');
+}
+
+function putPants () {
+  console.log('Putting on the pants.');
+}
+
+function putShoes () {
+  console.log('Putting on the shoes.');
+}
+
+
+function getReadyForWork (callback1, callback2, callback3, callback4) {
+  callback1();
+  callback2();
+  callback3();
+  callback4();
+  console.log("I'm ready to go to work!!!");
+}
+
+getReadyForWork(putShoes, putSocks, putPants, putShirt);
+// => Putting on the shoes.
+// => Putting on the socks.
+// => Putting on the pants.
+// => Putting on the shirt.
+// => I'm ready to go to work!!!
+
+//Anonymous Functions
+//An anonymous function is a function without a name.
+//An anonymous function is usually not available to be used after its initial creation. The reason for creating a function without any name is that it will be used just at that very moment and never again in your code, so there’s really no need to name it.
+function printName(name, anonFunc) {
+  anonFunc(name);
+}
+
+printName('sandra', function (name) {
+  console.log(name[0].toUpperCase() + name.slice(1));
+});
+// => Sandra
+
+//Example 2
+function getLength(str, anonFunc) {
+  anonFunc(str);
+}
+
+getLength('aleksandra', function (str) {
+  console.log(`${str} has ${str.length} letters.`);
+});
+
+// => aleksandra has 10 letters.
+
+getLength('nick', function (str) {
+  console.log(`${str} has ${str.length} letters.`);
+});
+// => nick has 4 letters.
+
+
+//JavaScript Array methods
+const studentsFour = ['anna', 'brian', 'chloe'];
+// Loop over an array and print each element
+studentsFour.forEach( function (el) {
+  console.log('Hello ' + el);
+});
+//"Hello anna"
+//"Hello brian"
+//"Hello chloe"
+
+//Asynchronous JS functions
+setTimeout( function () {
+  console.log('I am anonymous function and I will execute after 2 seconds');
+}, 2000);
+// ... nothing happens for 2 seconds
+// => I am anonymous function and I will execute after 2 seconds
+
+
+//Arror Functions
+// function expression syntax
+const greeting1 = function (name) {
+  console.log(`Hello, ${name}!`);
+};
+
+// arrow function syntax
+const greeting2 = (name) => {
+  console.log(`Hello, ${name}!`);
+};
+
+//Arror functions with one parameter
+// arrow function syntax - one parameter without parameter parentheses
+const greeting3 = name => {
+  console.log(`Hello, ${name}!`);
+};
+
+//Concise arrow function
+const greeting4 = (name) => `Hello, ${name}!`;
+console.log(greeting4('Ana')); // => Hello, Ana!
+
+//The arguments object
+function printSomething() {
+  console.log(arguments);
+}
+
+printSomething('hi');
+// [Arguments] { '0': 'hi' }
+
+function printSomething() {
+  console.log('arguments length: ', arguments.length);
+  console.log('all: ', arguments);
+  console.log('first arg: ', arguments[0]);
+  console.log('second arg: ', arguments[1]);
+}
+printSomething('hi', 'there');
+// arguments length:  2
+// all:  [Arguments] { '0': 'hi', '1': 'there' }
+// first arg:  hi
+// second arg:  there
+
+
+//over the arguments object
+function printArgs() {
+  for (let i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}
+printArgs('hey', 'there', 'ironhacker');
+// hey
+// there
+// ironhacker
+printArgs(1, 77, { name: 'milo' }, ['cat', 'dog']);
+// 1
+// 77
+// { name: 'milo' }
+// [ 'cat', 'dog' ]
+
+//map()
+//ES5
+const array = [1, 2, 3];
+
+const newArray = array.map(function (number) {
+  return number * 2;
+});
+console.log(newArray); // [ 2, 4, 6 ]
+
+//ES6
+const arrayTwo = [1, 2, 3];
+const newArrayTwo = arrayTwo.map(number => number * 2);
+console.log(newArrayTwo); // [ 2, 4, 6 ]
+
+//forEach
+const arrayThree = [1, 2, 3];
+
+const newArrayThree = []; // we have to create a newArray
+arrayThree.forEach(function (numcopy) {
+  numcopy *= 2; // double the passed copy (it's a copy)
+  newArrayThree.push(numcopy); // and push it to the newArray
+});
+console.log(newArrayThree); // <== [ 2, 4, 6 ]
+
+//map
+const foods = ['pizza', 'sandwiches', 'ice cream'];
+
+// ES5:
+const capsFoodsTwo = foods.map(function (food) {
+  return food.toUpperCase();
+});
+console.log(capsFoodsTwo);
+// [ 'PIZZA', 'SANDWICHES', 'ICE CREAM' ]
+
+// ES6:
+const capsFoodsThree = foods.map(food => food.toUpperCase());
+console.log(capsFoodsThree);
+// [ 'PIZZA', 'SANDWICHES', 'ICE CREAM' ]
+
+//Practice
+// array of cities:
+const cities = ['miami', 'barcelona', 'madrid', 'amsterdam', 'berlin', 'sao paulo', 'lisbon', 'mexico city', 'paris'];
+//ES5
+const capsCities = cities.map(function (city) {
+  return city.toUpperCase();
+});
+console.log(capsCities);
+//ES6
+capsCities = cities.map(cities => cities.toUpperCase());
+console.log(capsCities);
+//["MIAMI","BARCELONA","MADRID","AMSTERDAM","BERLIN","SAO PAULO","LISBON","MEXICO CITY","PARIS"]
+
+
+
+
+const studentsFive = [
+  {
+    name: 'Tony Parker',
+    firstProject: 80,
+    secondProject: 75,
+    finalExam: 90
+  },
+  {
+    name: 'Marc Barchini',
+    firstProject: 84,
+    secondProject: 65,
+    finalExam: 65
+  },
+  {
+    name: 'Claudia Lopez',
+    firstProject: 45,
+    secondProject: 95,
+    finalExam: 99
+  },
+  {
+    name: 'Alvaro Briattore',
+    firstProject: 82,
+    secondProject: 92,
+    finalExam: 70
+  },
+  {
+    name: 'Isabel Ortega',
+    firstProject: 90,
+    secondProject: 32,
+    finalExam: 85
+  },
+  {
+    name: 'Francisco Martinez',
+    firstProject: 90,
+    secondProject: 55,
+    finalExam: 78
+  },
+  {
+    name: 'Jorge Carrillo',
+    firstProject: 83,
+    secondProject: 77,
+    finalExam: 90
+  },
+  {
+    name: 'Miguel López',
+    firstProject: 80,
+    secondProject: 75,
+    finalExam: 75
+  },
+  {
+    name: 'Carolina Perez',
+    firstProject: 85,
+    secondProject: 72,
+    finalExam: 67
+  },
+  {
+    name: 'Ruben Pardo',
+    firstProject: 89,
+    secondProject: 72,
+    finalExam: 65
+  }
+];
+
+const finalGrades = studentsFive.map(theStudent => {
+  const projectsAvg = (theStudent.firstProject + theStudent.secondProject) / 2;
+  const finalGrade = theStudent.finalExam * 0.6 + projectsAvg * 0.4;
+  return {
+    name: theStudent.name,
+    finalGrade: Math.round(finalGrade)
+  };
+});
+
+console.log(finalGrades);
+//   { name: 'Tony Parker', finalGrade: 85 },
+//   { name: 'Marc Barchini', finalGrade: 69 },
+//   { name: 'Claudia Lopez', finalGrade: 87 },
+//   { name: 'Alvaro Briattore', finalGrade: 77 },
+//   { name: 'Isabel Ortega', finalGrade: 75 },
+//   { name: 'Francisco Martinez', finalGrade: 76 },
+//   { name: 'Jorge Carrillo', finalGrade: 86 },
+//   { name: 'Miguel López', finalGrade: 76 },
+//   { name: 'Carolina Perez', finalGrade: 72 },
+//   { name: 'Ruben Pardo', finalGrade: 71 }
+
+//.reduce
+//ES5
+array.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+});
+
+//ES6
+array.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+//Accumulating the sum of numbers from an array.
+const numbers = [2, 4, 6, 8];
+
+const total = numbers.reduce(function (accumulator, currentValue) {
+  console.log('accumulator is: ', accumulator, 'and current value is: ', currentValue);
+  return accumulator + currentValue;
+});
+console.log('total is: ', total);
+// accumulator is:  2 and current value is:  4
+// accumulator is:  6 and current value is:  6
+// accumulator is:  12 and current value is:  8
+// total is:  20
+
+//sum with initialValue
+const numbersTwo = [12, 9, 1, 8];
+
+const totalTwo = numbersTwo.reduce((accumulator, currentValue) => {
+  console.log('accumulator is: ', accumulator, 'and current value is: ', currentValue);
+  return accumulator + currentValue;
+}, 23); // <= notice the 23!!!
+console.log('total is: ', totalTwo);
+// accumulator is:  23 and current value is:  12
+// accumulator is:  35 and current value is:  9
+// accumulator is:  44 and current value is:  1
+// accumulator is:  45 and current value is:  8
+// total is:  53
+
+
+const numbersThree = [2, 4, 6, 8];
+const totalThree = numbersThree.reduce((accumulator, current) => accumulator * current);
+console.log(totalThree); // <== 384
+
+
+const words = ['This', 'is', 'one', 'big', 'string'];
+// ES5:
+const bigString = words.reduce(function (sum, word) {
+  return sum + word;
+});
+// ES6:
+const bigStringTwo = words.reduce((sum, word) => sum + word);
+console.log(bigStringTwo); // <== Thisisonebigstring
+
+
+//Objects - initialValue
+const people = [
+  { name: 'Candice', age: 25 },
+  { name: 'Tammy', age: 30 },
+  { name: 'Allen', age: 49 },
+  { name: 'Nettie', age: 21 },
+  { name: 'Stuart', age: 17 }
+];
+
+const ages = people.reduce(function (sum, person) {
+  return sum + person.age;
+}, 0); // initialValue to 0
+console.log(ages); // <== 142
+
+//forEach to total
+const numbersFour = [1, 2, 3, 4];
+let totalOne = 0;
+
+numbersFour.forEach(function (number) {
+  totalOne += number;
+});
+console.log(totalOne);
+// 10
