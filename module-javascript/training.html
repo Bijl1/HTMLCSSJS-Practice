@@ -168,3 +168,53 @@
 
 
 <!--Before practice-->
+...Our commitment is to use <strong>impeccable</strong> sourcing and <strong>quality</strong>...
+...Our commitment is to use <strong>impeccable</strong> sourcing and <strong>quality</strong>...
+
+
+<p>We are <i>open</i> every day of the week from <b><time>8:00</time>AM</b> to <b><time>22:00</time></b>PM</p>
+
+<!-- ... -->
+<label>
+  Reservation for:
+  <input type="text" name="name" value="Your name" />
+</label>
+
+<label>
+  Meal:
+  <select name="meal">
+    <option value="breakfast">Breakfast</option>
+    <option value="tea-time">Tea Time</option>
+  </select>
+</label>
+
+<label>
+  How many people?
+  <select name="how-many">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">Seatless Oasis</option>
+  </select>
+</label>
+
+<button type="submit">Submit Reservation</button>
+<!-- ... -->
+
+
+<br></br>
+  <footer>
+    <a href="mailto:DoNotContactMe@fake.com">Contact Us</a>
+  </footer>
+
+<button id="test">Start Demo</button>
+
+<script>
+ var button = document.getElementById('test');
+ button.addEventListener('click', function () { alert('ONE') }, false);
+ button.setAttribute('onclick', "alert('NOT CALLED')"); // event handler listener is registered here
+ button.addEventListener('click', function () { alert('THREE') }, false);
+ button.onclick = function () { alert('TWO'); };
+ button.addEventListener('click', function () { alert('FOUR') }, false);
+</script>
