@@ -1,0 +1,223 @@
+<!--
+    Paragraphs:
+    HTML <p> element represents a paragraph of text. Paragraphs are blocks of text separated from adjacent blocks by vertical blank space and/or first-line indentation.
+
+    Preformatted text:
+    <pre> element represents preformatted text. Text within this element is typically displayed in a non-proportional (“monospace”) font exactly as it is laid out in the file.
+
+    Headings:
+    Heading elements have six levels of document headings (titles): <h1> is the most important and <h6> is the least. A title briefly describes the topic of the section it introduces.
+
+    Lists:
+    Ordered List:
+    <ol> element represents an ordered list of items. Each list item is numbered
+
+    Unordered List: <ul>
+
+    List Items: <il>
+    Ordered and unordered lists both have elements within them. These elements are declared as li elements.
+
+
+    Tables: table, tr, td, tfoot, thead
+    This element is used to express information in a two-dimensional data table. It requires several other elements inside to make sense.
+    The HTML element table row <tr> defines a row of cells in a table. If the element inside a row defines a header, we should use the <th> (table header), otherwise we should use the <td> (table data).
+
+    Links (Anchors)
+    <a> It defines a hyperlink to a location on the same page or any other page on the Web. Usually followed by ‘href’ attribute.<a href = "http://www.example.com">
+
+    Break: <br> produces a line break in text (carriage-return) and it has no closure.
+
+    Images: <img> defines an image. Is followed by the ‘src’ attribute and it is mandatory to add the image URL. <img src = "http://www.example.com">
+
+    Scripts
+    <script> is used to embed or reference an executable script within an HTML file.
+
+    Spans
+    <span> is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes. It should be used only when no other semantic element is appropriate. Not recommended.
+
+    Buttons
+    It represents a clickable button.
+
+    Inputs
+    It is used to create interactive controls for web-based forms in order to accept data from the user. How it works varies considerably depending on the value of its type attribute.
+
+    Labels
+    It represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the <label> element, or by using the for attribute. One input can be associated with multiple labels.
+
+    Selects
+    The HTML <select> element represents a control that presents a menu of options. The options within the menu are represented by <option> elements, which can be grouped by <optgroup> elements.
+
+    Textarea
+    It represents a multi-line plain-text editing control. You can indicate the size by specifying number of column and rows.
+
+
+
+
+-->
+
+<h1>Heading level 1</h1>
+<h2>Heading level 2</h2>
+<h3>Heading level 3</h3>
+<h4>Heading level 4</h4>
+<h5>Heading level 5</h5>
+<h6>Heading level 6</h6>
+
+<ol>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+</ol>
+  
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Bootcamp</th>
+      <th>City</th>
+    </tr>
+    <tr>
+      <td>Jose Perez</td>
+      <td>FullStack WebDev</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <td>Michael Smith</td>
+      <td>FrontEnd WebDev</td>
+      <td>Barcelona</td>
+    </tr>
+    <tr>
+      <td>Ariel Quinones</td>
+      <td>MasterChef WebDev</td>
+      <td>Miami</td>
+    </tr>
+</table>
+
+<!--Method-->
+<form action="" method="post">
+    <label for="name">Name:</label>
+    <input id="name" type="text" />
+    <button type="submit">Save</button>
+</form>
+  
+<!--Fieldset - The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.-->
+<form action="/users" method="post">
+    <fieldset><input type="radio" id="radio" /> <label for="radio">Click me</label></fieldset>
+</form>
+
+
+<h3>Our food</h3>
+<ul>
+  <li>
+    Our coffee
+    <ol>
+      <li>Cafe Latte</li>
+      <li>Americano</li>
+      <li>Cappuccino</li>
+    </ol>
+  </li>
+
+  <li>
+    Our teas
+    <ol>
+      <li>Earl Grey</li>
+      <li>English Breakfast</li>
+      <li>Herb Tea</li>
+    </ol>
+  </li>
+
+  <li>
+    Fish
+    <ol>
+      <li>Salmon</li>
+      <li>Tuna</li>
+      <li>Snapper</li>
+    <ol>
+   </ul>
+
+<h3>Reservations here!</h3>
+<form></form>
+
+      ... commitment is to use <em>impeccable</em> sourcing and <em>quality</em> ingredients...
+      This is <em>pretty cool</em>.
+      <br></br>
+      The <i>Queen Mary</i> sailed last night.
+ 
+      <br></br>
+      <b>Bold</b>
+<br></br>
+<img src = "https://user-images.githubusercontent.com/14011726/94132137-7d4fc100-fe7c-11ea-8512-69f90cb65e48.gif">
+
+<br></br>
+<input>Input</input>
+
+<br></br>
+<label>Mango Tree</label>
+
+<br></br>
+<select>
+  <option value="option1">Work Hard</option>
+  <option value="option1">Learn more languages</option>
+  <option value="option1">Keep practicing</option>
+</select>
+
+<br></br>
+
+<label for="description">Box:</label>
+<textarea id="description" name="description" rows="5" cols="33">
+  Product description here...
+</textarea>
+
+
+<!--Before practice-->
+...Our commitment is to use <strong>impeccable</strong> sourcing and <strong>quality</strong>...
+...Our commitment is to use <strong>impeccable</strong> sourcing and <strong>quality</strong>...
+
+
+<p>We are <i>open</i> every day of the week from <b><time>8:00</time>AM</b> to <b><time>22:00</time></b>PM</p>
+
+<!-- ... -->
+<label>
+  Reservation for:
+  <input type="text" name="name" value="Your name" />
+</label>
+
+<label>
+  Meal:
+  <select name="meal">
+    <option value="breakfast">Breakfast</option>
+    <option value="tea-time">Tea Time</option>
+  </select>
+</label>
+
+<label>
+  How many people?
+  <select name="how-many">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">Seatless Oasis</option>
+  </select>
+</label>
+
+<button type="submit">Submit Reservation</button>
+<!-- ... -->
+
+
+<br></br>
+  <footer>
+    <a href="mailto:DoNotContactMe@fake.com">Contact Us</a>
+  </footer>
+
+<button id="test">Start Demo</button>
+
+<script>
+ var button = document.getElementById('test');
+ button.addEventListener('click', function () { alert('ONE') }, false);
+ button.setAttribute('onclick', "alert('NOT CALLED')"); // event handler listener is registered here
+ button.addEventListener('click', function () { alert('THREE') }, false);
+ button.onclick = function () { alert('TWO'); };
+ button.addEventListener('click', function () { alert('FOUR') }, false);
+</script>
+
+
+<!--Responsive Web Design-->
