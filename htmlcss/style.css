@@ -1,55 +1,19 @@
-body {
-    background-color: teal;
-  }
-  
-  p {
-    color: orange;
-  }
-  
-  .red-box {
-    background-color: red;
-    width: 250px;
-    height: 50px;
-  }
-  
-  .white-box {
-    background-color: white;
-    width: 250px;
-    height: 50px;
-  }
-  
-  #cover-box {
-    background-color: black;
-    width: 250px;
-    border: 1px solid white;
-    color: white;
-  }
-  
-  #first-element-box {
-    background-color: pink;
-    width: 250px;
-  }
-  
-  ul.todo-list li:nth-child(2) {
-    color: White;
-    background-color: black;
-    width: 250px;
-  }
-  
-  ul.todo-list li:nth-child(3) {
-    background-color: orange;
-    width: 250px;
-  }
-  
-  #menu li:nth-child(2) {
-    background-color: purple;
-    width: 250px;
-    color: white;
-  }
+div {
+  background-color: lightblue;
+  margin-top: 10px;
+}
 
-  h1 {
-    background-color: black;
-    color: white;
-  }
+span {
+  background-color: purple;
+  color: white;
+}
 
-  
+ol {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+table {
+  font-weight: bold;
+  background-color: color-mix(in srgb, purple 30%, orange 30%);
+}
