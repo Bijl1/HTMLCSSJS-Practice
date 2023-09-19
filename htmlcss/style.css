@@ -1,19 +1,44 @@
-div {
-  background-color: lightblue;
-  margin-top: 10px;
+
+
+footer {
+  color: black;
 }
 
-span {
-  background-color: purple;
-  color: white;
-}
-
-ol {
+ul li {
   font-weight: bold;
   font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
   font-weight: bold;
   background-color: color-mix(in srgb, purple 30%, orange 30%);
+  width: 50%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.image-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+}
+
+.image-container img {
+  margin: 0 10px;
+}
+
+h3 {
+  text-align: center;
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 300%;
+  font-family: 'Times New Roman', Times, serif;
+  
 }
