@@ -89,7 +89,7 @@ a[href*="hack"] {
 
 .wrap    { 
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }  
 .wrap li {
   background: gold;
@@ -114,5 +114,19 @@ a[href*="hack"] {
   color: white;
   font-weight: bold;
   font-size: 2em;
+  text-align: center;
+}
+
+.fixed {
+  position:fixed;
+  bottom: 0;
+  right: 0;
+  background: white;
+  opacity:0.8;
+  color: #111;
+  border: 3px solid white;
+  font-weight: bold;
+  padding: 10px;
+  width: 500px;
   text-align: center;
 }
