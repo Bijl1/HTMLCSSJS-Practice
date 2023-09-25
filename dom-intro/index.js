@@ -49,3 +49,8 @@ console.log(divs);
 let paragraphDoc = document.getElementById('paragraph');
 let paragraphId = paragraphDoc.getAttribute('id');
 console.log(paragraphId); // <== paragraph
+
+// index.js
+let paragraphTwo = document.getElementById('paragraph');
+paragraphValue.setAttribute('id', 'info-paragraph');
+console.log(paragraphTwo)
