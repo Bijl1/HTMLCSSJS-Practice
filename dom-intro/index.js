@@ -62,3 +62,7 @@ const googleLink = document.getElementById('google-link');
 googleLink.setAttribute('href', 'http://www.google.com');
 
 
+let paragraph2 = document.getElementById('paragraph');
+paragraph2.removeAttribute('id');
+paragraph2.setAttribute('class', 'paragraph');
+console.log(paragraph2);
