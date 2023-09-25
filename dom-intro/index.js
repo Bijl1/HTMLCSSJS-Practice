@@ -27,5 +27,25 @@ function generateRandomColor() {
     changeBackgroundText();
   }
   
-  setInterval(changeBackground, 1000);
-  
+  setInterval(changeBackground, 100);
+
+
+let graph = document.getElementById('paragraph');
+console.log(paragraph); // <== <p id="paragraph">What is your name?</p>
+
+let links = document.getElementsByClassName('link');
+console.log(links); // <== HTMLCollection [a#google-link.link, google-link: a#google-link.link]
+// 0: a#google-link.link
+
+let gameFish = document.getElementById('title');
+console.log(gameFish);
+
+let code = document.getElementsByClassName('item')
+console.log(code)
+
+let divs = document.getElementsByTagName('div');
+console.log(divs);
+
+let paragraphDoc = document.getElementById('paragraph');
+let paragraphId = paragraphDoc.getAttribute('id');
+console.log(paragraphId); // <== paragraph
