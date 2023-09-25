@@ -50,7 +50,15 @@ let paragraphDoc = document.getElementById('paragraph');
 let paragraphId = paragraphDoc.getAttribute('id');
 console.log(paragraphId); // <== paragraph
 
-// index.js
 let paragraphTwo = document.getElementById('paragraph');
 paragraphValue.setAttribute('id', 'info-paragraph');
 console.log(paragraphTwo)
+//<p id="info-paragraph">What is your name?</p>
+
+
+//Set the href attribute of the a element identified as google-link to http://www.google.com.
+//Practice 1
+const googleLink = document.getElementById('google-link');
+googleLink.setAttribute('href', 'http://www.google.com');
+
+
