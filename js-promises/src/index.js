@@ -23,3 +23,27 @@ function func1() {
   }
    
   func3(func4);
+
+
+  const directions = [
+    "Starting point: Ironhack Miami",
+    "↑ Head east on SW 8th St/Carlos Arboleya toward SW 1st Avenue",
+    "➔ Turn right onto S Miami Ave",
+    "* Chipotle Mexican Grill 891 S Miami Ave, Miami"
+  ];
+  
+  //Too many callbacks - Callback Hell
+  function getDirections(step, callback, errorCallback) {
+    // setTimeout(() => {
+      console.log( directions[step] );
+      
+      if (!directions[step]) errorCallback("Instructions not found.");
+      else callback();
+    // }, 2000); 
+  }
+  
+  // Single callback
+  getDirections(0, ()=> {
+    getDirections(1, () => {});
+  });
+  
