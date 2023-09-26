@@ -61,27 +61,58 @@ function func1() {
 //   }, (err) => console.log(err));
 
   // Simulated getDirections function
-function getDirections(destination, onSuccess, onError) {
-    setTimeout(() => {
-      const errorProbability = Math.random();
+// function getDirections(destination, onSuccess, onError) {
+//     setTimeout(() => {
+//       const errorProbability = Math.random();
   
-      if (errorProbability < 0.2) {
-        onError(`Error: Unable to get directions to destination ${destination}`);
-      } else {
-        onSuccess(`Directions to destination ${destination} received.`);
-      }
-    }, 2000); 
-  }
+//       if (errorProbability < 0.2) {
+//         onError(`Error: Unable to get directions to destination ${destination}`);
+//       } else {
+//         onSuccess(`Directions to destination ${destination} received.`);
+//       }
+//     }, 2000); 
+//   }
   
-  getDirections(0, () => {
-    console.log("You arrived at your destination 0!");
-  }, (err) => {
-    console.log(err);
-  });
+//   getDirections(0, () => {
+//     console.log("You arrived at your destination 0!");
+//   }, (err) => {
+//     console.log(err);
+//   });
   
-  getDirections(1, () => {
-    console.log("You arrived at your destination 1!");
-  }, (err) => {
-    console.log(err);
-  });
+//   getDirections(1, () => {
+//     console.log("You arrived at your destination 1!");
+//   }, (err) => {
+//     console.log(err);
+//   });
+  
+
+
+  //Using promises
+  const directions = [
+    "Starting point: Ironhack Madrid",
+    "➔ Turn right toward P. de la Chopera",
+    "← At the roundabout, take the 1st exit onto P. de la Chopera",
+    "* Lune Creperie P. de la Chopera 33, Madrid"
+  ];
+  
+  
+  function obtainDirections(step) {
+    return new Promise ((resolve, reject) => {
+       setTimeout(() => {
+        console.log( directions[step] );
+  
+        if (!directions[step]) reject("Instructions not found.")
+        else resolve();
+       }, 2000); 
+      
+    })
+  };
+  
+  
+  obtainDirections(0)
+    .then(() => obtainDirections(1) )
+    .then(() => obtainDirections(2) )
+    .then(() => obtainDirections(3) )
+    .then(() => console.log("You arrived at your destination!") )
+    .catch((err) => console.log(err));
   
