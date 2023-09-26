@@ -31,7 +31,7 @@ function generateRandomColor() {
 
 
 let graph = document.getElementById('paragraph');
-console.log(paragraph); // <== <p id="paragraph">What is your name?</p>
+console.log(graph); // <== <p id="paragraph">What is your name?</p>
 
 let links = document.getElementsByClassName('link');
 console.log(links); // <== HTMLCollection [a#google-link.link, google-link: a#google-link.link]
@@ -66,3 +66,26 @@ let paragraph2 = document.getElementById('paragraph');
 paragraph2.removeAttribute('id');
 paragraph2.setAttribute('class', 'paragraph');
 console.log(paragraph2);
+
+
+let h2Tag = document.createElement('h2');
+console.log(h2Tag); //<h2></h2>
+h2Tag.innerHTML = 'Elephant';
+console.log(h2Tag);//<h2>Elephant</h2>
+
+let parent = document.getElementsByTagName('body')[0];
+parent.appendChild(h2Tag);
+console.log(parent);
+
+
+let text = document.createTextNode('This text is created dynamically  ');
+parent.appendChild(text);
+console.log(text);
+
+//Practice 4
+let element = document.createElement('p');
+console.log(element); //<p></p>
+
+let textNode = document.createTextNode('Hi there! I am using JavaScrip  ');
+parent.appendChild(textNode);
+console.log(textNode);
