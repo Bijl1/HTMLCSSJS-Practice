@@ -108,7 +108,6 @@ function func1() {
     })
   };
   
-  
   obtainDirections(0)
     .then(() => obtainDirections(1) )
     .then(() => obtainDirections(2) )
@@ -116,3 +115,25 @@ function func1() {
     .then(() => console.log("You arrived at your destination!") )
     .catch((err) => console.log(err));
   
+    //.then()
+    const pr1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("JavaScript");
+      }, 9000);
+    });
+    
+    pr1
+      .then((val) => console.log("Resolved with: ", val));
+    
+
+    //.catch()
+    const pr2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+          reject("Rejected!"); // <== This value will be passed to catch()
+      }, 2000);
+    });
+     
+    pr2
+      .then((value) => console.log("Resolved with: ", val)) //none value using "val" instead of 'value'
+      .then((value) => console.log("Resolved with: ", value)) //Resolved with JavaScript
+      .catch((err) => console.log("catch() -> ", err)); //catch() "Rejected!"
