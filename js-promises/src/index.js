@@ -137,3 +137,59 @@ function func1() {
       .then((value) => console.log("Resolved with: ", val)) //none value using "val" instead of 'value'
       .then((value) => console.log("Resolved with: ", value)) //Resolved with JavaScript
       .catch((err) => console.log("catch() -> ", err)); //catch() "Rejected!"
+
+
+      const pr3 = new Promise((resolve, reject) => {
+        throw new Error("Rejected by throwing an Error!");
+    });
+    
+    
+    pr3
+      .then((value) => console.log("Resolved with: ", value))
+      .catch((err) => console.log("catch() -> ", err));
+    
+
+      const pr4 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Ironhack"), 2000);
+      });
+      
+      
+      pr4
+        .then(() => {
+          console.log("1. then()");
+        })
+        .then(() => {
+          console.log("2. then()");
+          throw new Error("Something went wrong");     // <= Throw an Error
+        })
+        .then(() => {                                  // <= This block is skipped
+          console.log("3. then()");
+        })
+        .catch((err) => console.log("catch() -> ", err));
+      
+
+      const pr5 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("A"), 10000);
+      });
+      
+      pr5
+        .then((value1) => {
+          console.log("value1:", value1);
+          return "B";
+        })
+        .then((value2) => {
+          console.log("value2:", value2);
+          return "C";
+        })
+        .then((value3) => {
+          console.log("value3:", value3);
+          return "D";
+        })
+        .then((value4) => {
+          console.log("value4:", value4);
+          return "A, B, C, D";
+        })
+        .then((value5) => {
+          console.log("value5:", value5);
+        })
+      
