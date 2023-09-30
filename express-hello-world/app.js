@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.get('/home', (request, response, next) => {
+app.get('/', (request, response, next) => {
     console.log(request);
     response.send('<h1>Welcome!</h1>');
 });
