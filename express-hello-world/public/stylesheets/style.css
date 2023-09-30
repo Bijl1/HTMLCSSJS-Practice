@@ -1,9 +1,12 @@
 body {
-    color: blue;
     background-color: bisque;
 }
 
 img {
     max-width: 50%;
     height: auto;
+}
+
+h1 {
+    color: blue;
 }

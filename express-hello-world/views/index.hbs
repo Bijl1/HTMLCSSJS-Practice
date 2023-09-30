@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My first view</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <h1>Dynamic View</h1>
+   <h2>Hello {{name}} {{lastName}}!</h2>
+   {{#if name}}
+      <h4>This will be displayed!!</h4>
+   {{/if}}
+   <ul>
+    {{#each cities}}
+    <li>{{this}}</li>
+    {{else}}
+    <p>No Cities yet!</p>
+    {{/each}}
+   </ul>
+    <p>Welcome to the {{bio}}!!</p>
+  <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif">
+  <br></br>
+    <a href="/cat">See Cat Page</a>
+    <a href="/code">See Code Page</a>
+    <a href="/home">See Home Page</a>
+    <a href="/test">See Test Page</a>
+    <a href="/about">See About Page🤘</a>
+    <a href="/">See Main Page🤘</a>
+
+
+</body>
+</html>
