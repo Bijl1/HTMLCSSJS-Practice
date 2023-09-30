@@ -153,7 +153,7 @@ function func1() {
         setTimeout(() => resolve("Ironhack"), 2000);
       });
       
-      
+      //Errors
       pr4
         .then(() => {
           console.log("1. then()");
@@ -167,7 +167,7 @@ function func1() {
         })
         .catch((err) => console.log("catch() -> ", err));
       
-
+        //Multiple .then() blocks
       const pr5 = new Promise((resolve, reject) => {
         setTimeout(() => resolve("A"), 10000);
       });
@@ -193,3 +193,89 @@ function func1() {
           console.log("value5:", value5);
         })
       
+        //Multiple .catch() blocks
+        const pr7 = new Promise((resolve, reject) => {
+          setTimeout(() => resolve("A"), 12000);
+        });
+        
+        
+        pr7
+          .then((value1) => {
+            console.log("1. then(): ", value1);  
+            throw new Error("FIRST ERROR");
+          })
+          .catch((err) => {
+            console.error("1. catch(): ", err);
+            return "Hello from catch";
+          })
+          .then((value2) => {
+            console.log("2. then(): ", value2);
+            throw new Error("SECOND ERROR");
+          })
+          .catch((err) => {
+            console.error("2. catch(): ", err);
+          });
+        
+          //,finally()
+          const pr8 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("A"), 13000);
+          });
+          
+          pr8
+            .then((value1) => console.log("1. then()"))
+            .then((value2) => console.log("2. then()"))
+            .finally(() => {
+              console.log("finally()");
+            });
+          
+
+          //Example 2
+          const pr9 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("Ironhack"), 14000);
+          });
+          
+          
+          pr9
+            .then(() => console.log("1. then()") )
+            .then(() => Promise.reject("Oops!") )      
+            .then(() => console.log("3. then()") )       
+            .catch((err) => {
+              console.log("catch()", err) 
+            throw err;
+            })
+            .finally(() => console.log("finally()"));
+
+          //Promised.all()
+          const p11 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("foo"), 15000);
+          });
+          const p22 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(1337), 16000);
+          });
+          const p33 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve( { name: "Bob" } ), 20000);
+          });
+          
+          Promise.all( [p11, p22, p33] )
+            .then((values) => console.log("values", values));
+          
+
+          //Rejection
+          const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("foo"), 21000);
+          });
+          
+          const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(1337), 22000);
+          });
+          
+          const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => reject("Something went wrong"), 24000); // <= Reject the promise
+          });
+          
+          Promise.all([p1, p2, p3])
+            .then((values) => console.log("values", values))
+            .catch((err)=> console.log("catch()", err));
+          
+
+            
