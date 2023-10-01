@@ -5,10 +5,16 @@ const path = require("path");
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
+hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res, next) => res.render ("index"));
-app.get("players", (req, res, next) => res.render("player"));
-app.get("/teams", (req, res, next) => res.render("teams"));
+app.get("/players", (req, res, next) => res.render("players"));
+app.get("/teams", (req, res, next) => {
+    const data = {
+        layout: false
+    }
+    res.render("teams", data);
+});
 
 app.listen(3000, () => console.log('My app listening on port 3000! '));
